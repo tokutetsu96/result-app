@@ -4,5 +4,15 @@ export type SiteConfig = {
   url: string;
   links: {
     x: string;
+    cod: string;
   };
+};
+
+export type NavItem = {
+  title: string;
+  href: string;
+};
+
+export type MarketingConfig = {
+  mainNav: NavItem[];
 };

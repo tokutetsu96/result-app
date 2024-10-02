@@ -6,5 +6,6 @@ export const siteConfig: SiteConfig = {
   url: "https://localhost:3000",
   links: {
     x: "https://x.com/ngtyki",
+    cod: "https://www.callofduty.com/ja",
   },
 };

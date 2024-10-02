@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Noto_Sans_JP } from "next/font/google";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import Header from "@/components/header";
 
 const fontNotoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  title: {
+    default: siteConfig.name,
+    template: `${siteConfig.name} | %s`,
+  },
   description: siteConfig.description,
 };
 
@@ -17,7 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={fontNotoSansJP.className}>{children}</body>
+      <body
+        className={cn(
+          "bg-background antialiased min-h-screen",
+          fontNotoSansJP.className
+        )}
+      >
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
