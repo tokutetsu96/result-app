@@ -1,11 +1,10 @@
+import ResultInput from "@/components/result-input";
 import React from "react";
-import TeamInput from "@/components/team-input";
 
-export default function battleThreePage() {
+export default function BattleThreePage() {
   return (
     <>
-      <TeamInput />
-      <div>対戦結果を入力する</div>
+      <ResultInput />
     </>
   );
 }

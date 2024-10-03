@@ -16,3 +16,8 @@ export type NavItem = {
 export type MarketingConfig = {
   mainNav: NavItem[];
 };
+
+export type TeamInput = {
+  myTeamName: string;
+  enemyTeamName: string;
+};

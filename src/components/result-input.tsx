@@ -1,19 +1,21 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Button, buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { type TeamInput } from "@/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { validationSchema } from "@/utils/validationSchema";
 
-interface TeamInput {
-  myTeamName: string;
-  enemyTeamName: string;
-}
-export default function TeamInput() {
+export default function ResultInput() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TeamInput>();
+  } = useForm<TeamInput>({
+    mode: "onChange",
+    resolver: zodResolver(validationSchema),
+  });
 
   const onSubmit = (data: TeamInput) => {
     console.log(data);
@@ -34,6 +36,7 @@ export default function TeamInput() {
               className="w-full p-1 border-2 border-blue-300 focus:outline-none focus:border-blue-500 rounded"
               {...register("myTeamName")}
             />
+            <p className="text-red-500">{errors.myTeamName?.message}</p>
           </div>
         </div>
         <div className="flex justify-center font-bold">
@@ -48,8 +51,13 @@ export default function TeamInput() {
               className="w-full p-1 border-2 border-red-300 focus:outline-none focus:border-red-500 rounded"
               {...register("enemyTeamName")}
             />
+            <p className="text-red-500">{errors.enemyTeamName?.message}</p>
           </div>
         </div>
+        <h1 className="sm:text-3xl text-xl font-bold">
+          試合結果を入力してください
+        </h1>
+
         <button
           onClick={handleSubmit(onSubmit)}
           className={cn(

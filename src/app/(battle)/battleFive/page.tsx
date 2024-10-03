@@ -1,4 +1,4 @@
-export default function battleFivePage() {
+export default function BattleFivePage() {
   return (
     <div>
       <div>
