@@ -20,4 +20,13 @@ export type MarketingConfig = {
 export type TeamInput = {
   myTeamName: string;
   enemyTeamName: string;
+  myTeamScoreOne: number;
+  enemyTeamScoreOne: number;
+  gameOne: string;
+  myTeamScoreTwo: number;
+  enemyTeamScoreTwo: number;
+  gameTwo: string;
+  myTeamScoreThree: number;
+  enemyTeamScoreThree: number;
+  gameThree: string;
 };
