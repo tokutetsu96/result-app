@@ -5,6 +5,7 @@ import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { type TeamInput } from "@/types";
 import { useRouter } from "next/navigation";
+import { gameModeConfig } from "@/config/game-mode";
 
 export default function ResultInput() {
   const router = useRouter();
@@ -60,12 +61,24 @@ export default function ResultInput() {
           <div className="border-l-4 border-slate-500 rounded">
             <select
               id="gameOne"
+              className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
               defaultValue={"HARDPOINT"}
               {...register("gameOne")}
             >
               <option value={"HARDPOINT"}>HARDPOINT</option>
               <option value={"SEARCH & DESTROY"}>SEARCH & DESTROY</option>
               <option value={"CONTROL"}>CONTROL</option>
+            </select>
+            <select
+              className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
+              id="mapOne"
+              {...register("mapOne")}
+            >
+              <option value="マップ１">マップ１</option>
+              <option value="マップ２">マップ２</option>
+              <option value="マップ３">マップ３</option>
+              <option value="マップ４">マップ４</option>
+              <option value="マップ５">マップ５</option>
             </select>
           </div>
         </div>
@@ -100,15 +113,27 @@ export default function ResultInput() {
         </div>
         <h2 className="sm:text-2xl font-bold">2モード目</h2>
         <div>
-          <div className="border-l-4 border-slate-500 rounded">
+          <div className="flex border-l-4 border-slate-500 rounded">
             <select
               id="gameTwo"
+              className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
               defaultValue={"SEARCH & DESTROY"}
               {...register("gameTwo")}
             >
               <option value={"HARDPOINT"}>HARDPOINT</option>
               <option value={"SEARCH & DESTROY"}>SEARCH & DESTROY</option>
               <option value={"CONTROL"}>CONTROL</option>
+            </select>
+            <select
+              id="mapTwo"
+              className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
+              {...register("mapTwo")}
+            >
+              <option value="マップ１">マップ１</option>
+              <option value="マップ２">マップ２</option>
+              <option value="マップ３">マップ３</option>
+              <option value="マップ４">マップ４</option>
+              <option value="マップ５">マップ５</option>
             </select>
           </div>
         </div>
@@ -146,12 +171,24 @@ export default function ResultInput() {
           <div className="border-l-4 border-slate-500 rounded">
             <select
               id="gameThree"
+              className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
               defaultValue={"CONTROL"}
               {...register("gameThree")}
             >
               <option value={"HARDPOINT"}>HARDPOINT</option>
               <option value={"SEARCH & DESTROY"}>SEARCH & DESTROY</option>
               <option value={"CONTROL"}>CONTROL</option>
+            </select>
+            <select
+              id="mapThree"
+              className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
+              {...register("mapThree")}
+            >
+              <option value="マップ１">マップ１</option>
+              <option value="マップ２">マップ２</option>
+              <option value="マップ３">マップ３</option>
+              <option value="マップ４">マップ４</option>
+              <option value="マップ５">マップ５</option>
             </select>
           </div>
         </div>
