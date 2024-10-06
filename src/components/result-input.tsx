@@ -1,24 +1,22 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { type TeamInput } from "@/types";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { validationSchema } from "@/utils/validationSchema";
+import { useRouter } from "next/navigation";
 
 export default function ResultInput() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TeamInput>({
-    mode: "onChange",
-    resolver: zodResolver(validationSchema),
-  });
+  } = useFormContext<TeamInput>();
 
   const onSubmit = (data: TeamInput) => {
-    console.log(data);
+    router.push("/battleThree/gameResult");
   };
 
   return (
