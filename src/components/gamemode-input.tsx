@@ -10,6 +10,16 @@ interface GameModeInputProps {
   defaultValue: string;
 }
 
+/**
+ *　ゲームモードとマップを選択するコンポーネント
+ *
+ * @gameId 何ゲーム目か
+ * @mapId 何マップ目か
+ * @register react-hook-form register
+ * @defaultValue ゲームモード初期値
+ *
+ * @returns
+ */
 export function GameModeInput({
   gameId,
   mapId,
@@ -17,10 +27,12 @@ export function GameModeInput({
   defaultValue,
 }: GameModeInputProps) {
   const gameIdValue = String(gameId);
-
+  // ゲームモードを保持しておく
   const [gameMode, setGameMode] = useState<string>(defaultValue);
+  // gameModeに応じて選択できるマップを制御するための変数を保持しておく
   const [gameModeValue, setGameModeValue] = useState<string>("");
-
+  console.log(gameId);
+  console.log(mapId);
   useEffect(() => {
     if (gameMode === "HARDPOINT") {
       setGameModeValue("hp");
