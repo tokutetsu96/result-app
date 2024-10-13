@@ -1,27 +1,39 @@
 import { z } from "zod";
 
 export const validationSchema = z.object({
-  myTeamName: z.string().nonempty("自分のチーム名を入力してください。"),
-  enemyTeamName: z.string().nonempty("相手のチーム名を入力してください。"),
-  myTeamScoreOne: z.coerce
+  myTeamName: z
+    .string()
+    .min(1, { message: "自分のチーム名を入力してください。" }),
+  enemyTeamName: z
+    .string()
+    .min(1, { message: "相手のチーム名を入力してください。" }),
+  myTeamScore1: z.coerce
     .number()
-    .max(250, "250以下の数値を入力してください。"),
-  enemyTeamScoreOne: z.coerce
+    .min(1, { message: "スコアは0以上の数値を入力してください。" })
+    .max(250, { message: "スコアは250以下の数値を入力してください。" }),
+  enemyTeamScore1: z.coerce
     .number()
-    .max(250, "250以下の数値を入力してください。"),
-  gameOne: z.string().nonempty("ゲーム名を入力してください。"),
-  myTeamScoreTwo: z.coerce
+    .min(1, { message: "スコアは0以上の数値を入力してください。" })
+    .max(250, { message: "スコアは250以下の数値を入力してください。" }),
+  game1: z.string().min(1, { message: "ゲーム名を入力してください。" }),
+  myTeamScore2: z.coerce
     .number()
-    .max(250, "250以下の数値を入力してください。"),
-  enemyTeamScoreTwo: z.coerce
+    .min(1, { message: "スコアは0以上の数値を入力してください。" })
+    .max(250, { message: "スコアは250以下の数値を入力してください。" }),
+  enemyTeamScore2: z.coerce
     .number()
-    .max(250, "250以下の数値を入力してください。"),
-  gameTwo: z.string().nonempty("ゲーム名を入力してください。"),
-  myTeamScoreThree: z.coerce
+    .min(1, { message: "スコアは0以上の数値を入力してください。" })
+    .max(250, { message: "スコアは250以下の数値を入力してください。" }),
+  game2: z.string().min(1, { message: "ゲーム名を入力してください。" }),
+  myTeamScore3: z.coerce
     .number()
-    .max(250, "250以下の数値を入力してください。"),
-  enemyTeamScoreThree: z.coerce
+    .min(1, { message: "スコアは0以上の数値を入力してください。" })
+    .max(250, { message: "スコアは250以下の数値を入力してください。" }),
+  enemyTeamScore3: z.coerce
     .number()
-    .max(250, "250以下の数値を入力してください。"),
-  gameThree: z.string().nonempty("ゲーム名を入力してください。"),
+    .min(1, { message: "スコアは0以上の数値を入力してください。" })
+    .max(250, { message: "スコアは250以下の数値を入力してください。" }),
+  game3: z.string().min(1, { message: "ゲーム名を入力してください。" }),
 });
+
+export type validationSchemaType = z.infer<typeof validationSchema>;

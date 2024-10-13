@@ -1,4 +1,4 @@
-import { TeamInput } from "@/types";
+import { validationSchemaType } from "@/utils/validationSchema";
 import { UseFormRegister } from "react-hook-form";
 
 interface TeamNameInputProps {
@@ -6,7 +6,7 @@ interface TeamNameInputProps {
   label: string;
   borderColor: string;
   inputBorderColor: string;
-  register: UseFormRegister<TeamInput>;
+  register: UseFormRegister<validationSchemaType>;
   error?: string | undefined;
 }
 
@@ -28,7 +28,7 @@ export function TeamNameInput({
           id={idValue}
           type="text"
           className={`w-full p-1 border-2 ${inputBorderColor} focus:outline-none focus:border-blue-500 rounded`}
-          {...register(id as keyof TeamInput)}
+          {...register(id as keyof validationSchemaType)}
         />
         <p className="text-red-500">{error}</p>
       </div>

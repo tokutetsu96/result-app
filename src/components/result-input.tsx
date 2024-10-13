@@ -3,11 +3,11 @@
 import { useFormContext } from "react-hook-form";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { type TeamInput } from "@/types";
 import { useRouter } from "next/navigation";
 import { TeamNameInput } from "./teamname-input";
 import { GameModeInput } from "./gamemode-input";
 import { TeamScoreInput } from "./team-score-input";
+import { validationSchemaType } from "@/utils/validationSchema";
 export default function ResultInput() {
   const router = useRouter();
 
@@ -15,9 +15,9 @@ export default function ResultInput() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useFormContext<TeamInput>();
+  } = useFormContext<validationSchemaType>();
 
-  const onSubmit = (data: TeamInput) => {
+  const onSubmit = (data: validationSchemaType) => {
     router.push("/battleThree/gameResult");
   };
 
@@ -64,7 +64,7 @@ export default function ResultInput() {
             />
             <div className="flex justify-between">
               <TeamScoreInput
-                id={`myTeamScore${modeIndex}`}
+                id={`myTeamScore${modeIndex}` as keyof validationSchemaType}
                 label="自チーム"
                 borderColor="border-blue-500"
                 inputBorderColor="border-blue-300"
@@ -75,7 +75,7 @@ export default function ResultInput() {
                 }
               />
               <TeamScoreInput
-                id={`enemyTeamScore${modeIndex}`}
+                id={`enemyTeamScore${modeIndex}` as keyof validationSchemaType}
                 label="相手チーム"
                 borderColor="border-red-500"
                 inputBorderColor="border-red-300"

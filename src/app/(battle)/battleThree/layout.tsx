@@ -1,16 +1,18 @@
 "use client";
 
 import { FormProvider, useForm } from "react-hook-form";
-import { TeamInput } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { validationSchema } from "@/utils/validationSchema";
+import {
+  validationSchema,
+  validationSchemaType,
+} from "@/utils/validationSchema";
 
 export default function BattleThreeLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const methods = useForm<TeamInput>({
+  const methods = useForm<validationSchemaType>({
     mode: "onChange",
     resolver: zodResolver(validationSchema),
   });

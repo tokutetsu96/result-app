@@ -1,9 +1,12 @@
+import { validationSchemaType } from "@/utils/validationSchema";
+import { UseFormRegister } from "react-hook-form";
+
 interface TeamScoreInputProps {
-  id: string;
+  id: keyof validationSchemaType;
   label: string;
   borderColor: string;
   inputBorderColor: string;
-  register: any;
+  register: UseFormRegister<validationSchemaType>;
   error?: string | undefined;
 }
 

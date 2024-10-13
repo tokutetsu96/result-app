@@ -1,12 +1,13 @@
 import { mapconfig } from "@/config/map";
 import { TeamInput } from "@/types";
+import { validationSchemaType } from "@/utils/validationSchema";
 import { useEffect, useState } from "react";
 import { UseFormRegister } from "react-hook-form";
 
 interface GameModeInputProps {
   gameId: string;
   mapId: string;
-  register: UseFormRegister<TeamInput>;
+  register: UseFormRegister<validationSchemaType>;
   defaultValue: string;
 }
 
@@ -31,8 +32,7 @@ export function GameModeInput({
   const [gameMode, setGameMode] = useState<string>(defaultValue);
   // gameModeに応じて選択できるマップを制御するための変数を保持しておく
   const [gameModeValue, setGameModeValue] = useState<string>("");
-  console.log(gameId);
-  console.log(mapId);
+
   useEffect(() => {
     if (gameMode === "HARDPOINT") {
       setGameModeValue("hp");
@@ -49,7 +49,7 @@ export function GameModeInput({
         id={gameIdValue}
         className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
         defaultValue={defaultValue}
-        {...register(gameId as keyof TeamInput, {
+        {...register(gameId as keyof validationSchemaType, {
           onChange: (e) => setGameMode(e.target.value),
         })}
       >
@@ -60,7 +60,7 @@ export function GameModeInput({
       <select
         id={mapId}
         className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
-        {...register(mapId as keyof TeamInput)}
+        {...register(mapId as keyof validationSchemaType)}
       >
         {mapconfig[gameModeValue]?.map((map: string) => (
           <option key={map} value={map}>
