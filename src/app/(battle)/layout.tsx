@@ -8,9 +8,5 @@ export default function CreateLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div>
-      <main className="container">{children}</main>
-    </div>
-  );
+  return <div>{children}</div>;
 }

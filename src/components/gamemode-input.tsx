@@ -1,5 +1,4 @@
 import { mapconfig } from "@/config/map";
-import { TeamInput } from "@/types";
 import { validationSchemaType } from "@/utils/validationSchema";
 import { useEffect, useState } from "react";
 import { UseFormRegister } from "react-hook-form";
@@ -9,6 +8,7 @@ interface GameModeInputProps {
   mapId: string;
   register: UseFormRegister<validationSchemaType>;
   defaultValue: string;
+  error?: string | undefined;
 }
 
 /**
@@ -26,6 +26,7 @@ export function GameModeInput({
   mapId,
   register,
   defaultValue,
+  error,
 }: GameModeInputProps) {
   const gameIdValue = String(gameId);
   // ゲームモードを保持しておく
@@ -48,7 +49,7 @@ export function GameModeInput({
       <select
         id={gameIdValue}
         className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
-        defaultValue={defaultValue}
+        value={gameMode}
         {...register(gameId as keyof validationSchemaType, {
           onChange: (e) => setGameMode(e.target.value),
         })}
@@ -68,6 +69,7 @@ export function GameModeInput({
           </option>
         ))}
       </select>
+      <p className="mx-2 text-red-500">{error}</p>
     </div>
   );
 }

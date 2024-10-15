@@ -8,6 +8,13 @@ import { TeamNameInput } from "./teamname-input";
 import { GameModeInput } from "./gamemode-input";
 import { TeamScoreInput } from "./team-score-input";
 import { validationSchemaType } from "@/utils/validationSchema";
+
+type GameFormValues = {
+  map1: string;
+  map2: string;
+  map3: string;
+  // 他のフィールドも追加できます
+};
 export default function ResultInput() {
   const router = useRouter();
 
@@ -54,12 +61,15 @@ export default function ResultInput() {
               gameId={`game${modeIndex}`}
               mapId={`map${modeIndex}`}
               register={register}
+              error={errors[`map${modeIndex}` as keyof GameFormValues]?.message}
               defaultValue={
                 modeIndex === 1
                   ? "HARDPOINT"
                   : modeIndex === 2
                     ? "SEARCH & DESTROY"
-                    : "CONTROL"
+                    : modeIndex === 3
+                      ? "CONTROL"
+                      : ""
               }
             />
             <div className="flex justify-between">
