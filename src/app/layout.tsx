@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `${siteConfig.name} | %s`,
   },
   icons: {
-    icon: "/cod.ico",
+    icon: "/icons/cod.ico",
   },
   description: siteConfig.description,
 };

@@ -3,10 +3,18 @@ import { z } from "zod";
 export const validationSchema = z.object({
   myTeamName: z
     .string()
-    .min(1, { message: "自分のチーム名を入力してください。" }),
+    .min(1, { message: "自分のチーム名を入力してください。" })
+    .max(4, { message: "自分のチーム名は4文字以下にしてください。" })
+    .regex(/^[A-Z]+$/, {
+      message: "自分のチーム名はアルファベットの大文字のみ使用できます。",
+    }),
   enemyTeamName: z
     .string()
-    .min(1, { message: "相手のチーム名を入力してください。" }),
+    .min(1, { message: "相手のチーム名を入力してください。" })
+    .max(4, { message: "相手のチーム名は4文字以下にしてください。" })
+    .regex(/^[A-Z]+$/, {
+      message: "相手のチーム名はアルファベットの大文字のみ使用できます。",
+    }),
   myTeamScore1: z.coerce
     .number()
     .min(1, { message: "スコアは0以上の数値を入力してください。" })

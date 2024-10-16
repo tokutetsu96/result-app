@@ -17,6 +17,9 @@ const config: Config = {
       },
     },
     extend: {
+      blur: {
+        xs: "2px",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
