@@ -38,7 +38,6 @@ export default function ResultInput() {
           id="myTeamName"
           label="自分のチーム名"
           borderColor="border-blue-500"
-          inputBorderColor="border-blue-300"
           register={register}
           error={errors.myTeamName?.message}
         />
@@ -49,7 +48,6 @@ export default function ResultInput() {
           id="enemyTeamName"
           label="相手のチーム名"
           borderColor="border-red-500"
-          inputBorderColor="border-red-300"
           register={register}
           error={errors.enemyTeamName?.message}
         />
@@ -77,7 +75,6 @@ export default function ResultInput() {
                 id={`myTeamScore${modeIndex}` as keyof validationSchemaType}
                 label="自チーム"
                 borderColor="border-blue-500"
-                inputBorderColor="border-blue-300"
                 register={register}
                 error={
                   (errors as Record<string, any>)[`myTeamScore${modeIndex}`]
@@ -88,7 +85,6 @@ export default function ResultInput() {
                 id={`enemyTeamScore${modeIndex}` as keyof validationSchemaType}
                 label="相手チーム"
                 borderColor="border-red-500"
-                inputBorderColor="border-red-300"
                 register={register}
                 error={
                   (errors as Record<string, any>)[`enemyTeamScore${modeIndex}`]
@@ -103,10 +99,10 @@ export default function ResultInput() {
           onClick={handleSubmit(onSubmit)}
           className={cn(
             buttonVariants({ variant: "secondary", size: "lg" }),
-            "w-full hover:bg-gray-200"
+            "w-full hover:bg-gray-200 text-lg font-semibold"
           )}
         >
-          確定
+          リザルト画像を生成する
         </button>
       </form>
     </div>

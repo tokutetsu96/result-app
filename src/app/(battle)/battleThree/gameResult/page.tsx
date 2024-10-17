@@ -4,7 +4,6 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { useFormContext } from "react-hook-form";
 import { imageMapConfig, ImageMapConfig } from "@/config/map";
-import Image from "next/image";
 
 export default function GameResultPage() {
   const router = useRouter();
@@ -13,8 +12,8 @@ export default function GameResultPage() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Game Result</h1>
-      <div className="flex space-x-4 align-items-center justify-center">
+      <h1 className="text-2xl font-bold mb-4 text-center">Game Result</h1>
+      <div className="flex space-x-2 items-center justify-center">
         {["map1", "map2", "map3"].map((key, index) => (
           <div
             key={index}
@@ -30,7 +29,7 @@ export default function GameResultPage() {
               className="absolute w-full h-full object-cover blur-xs brightness-75"
             />
             <div className="flex flex-col absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white p-4 w-48">
-              <div className="flex space-x-2 text-6xl font-bold align-items-center justify-center">
+              <div className="flex space-x-2 text-6xl font-bold items-center justify-center">
                 <p>{data[`myTeamScore${index + 1}`]}</p>
                 <span>-</span>
                 <p>{data[`enemyTeamScore${index + 1}`]}</p>
@@ -40,14 +39,14 @@ export default function GameResultPage() {
               </div>
             </div>
             <div
-              className={`absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl font-bold ${
+              className={`absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl font-bold px-4 py-2 rounded-md backdrop-blur-md bg-slate-100 bg-opacity-75 whitespace-nowrap ${
                 data[`myTeamScore${index + 1}`] >
                 data[`enemyTeamScore${index + 1}`]
-                  ? "text-red-500"
+                  ? "text-blue-500"
                   : data[`myTeamScore${index + 1}`] <
                       data[`enemyTeamScore${index + 1}`]
-                    ? "text-blue-500"
-                    : "text-white"
+                    ? "text-red-500"
+                    : "text-black text-5xl"
               }`}
             >
               {data[`myTeamScore${index + 1}`] >
@@ -56,7 +55,7 @@ export default function GameResultPage() {
                 : data[`myTeamScore${index + 1}`] <
                     data[`enemyTeamScore${index + 1}`]
                   ? data.enemyTeamName
-                  : "存在しない"}
+                  : "NOT PLAY"}
             </div>
           </div>
         ))}

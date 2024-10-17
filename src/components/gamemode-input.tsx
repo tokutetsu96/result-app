@@ -45,31 +45,39 @@ export function GameModeInput({
   }, [gameMode]);
 
   return (
-    <div className="border-l-4 border-slate-500 rounded">
-      <select
-        id={gameIdValue}
-        className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
-        value={gameMode}
-        {...register(gameId as keyof validationSchemaType, {
-          onChange: (e) => setGameMode(e.target.value),
-        })}
-      >
-        <option value={"HARDPOINT"}>HARDPOINT</option>
-        <option value={"SEARCH & DESTROY"}>SEARCH & DESTROY</option>
-        <option value={"CONTROL"}>CONTROL</option>
-      </select>
-      <select
-        id={mapId}
-        className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded"
-        {...register(mapId as keyof validationSchemaType)}
-      >
-        {mapconfig[gameModeValue]?.map((map: string) => (
-          <option key={map} value={map}>
-            {map}
-          </option>
-        ))}
-      </select>
-      <p className="mx-2 text-red-500">{error}</p>
+    <div className="border-l-4 border-slate-500 rounded mb-4">
+      <div className="flex items-center pt-2">
+        <select
+          id={gameIdValue}
+          className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded text-lg font-semibold"
+          value={gameMode}
+          {...register(gameId as keyof validationSchemaType, {
+            onChange: (e) => setGameMode(e.target.value),
+          })}
+        >
+          <option value={"HARDPOINT"}>HARDPOINT</option>
+          <option value={"SEARCH & DESTROY"}>SEARCH & DESTROY</option>
+          <option value={"CONTROL"}>CONTROL</option>
+        </select>
+        <select
+          id={mapId}
+          className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded text-lg"
+          {...register(mapId as keyof validationSchemaType)}
+        >
+          {mapconfig[gameModeValue]?.map((map: string) => (
+            <option key={map} value={map}>
+              {map}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {error ? (
+        <p className="mx-2 text-red-500">{error}</p>
+      ) : (
+        // レイアウトが崩れないようにするためのダミー
+        <p className="invisible h-6">Placeholder for error</p>
+      )}
     </div>
   );
 }
