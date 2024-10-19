@@ -15,7 +15,7 @@ type GameFormValues = {
   map3: string;
   // 他のフィールドも追加できます
 };
-export default function ResultInput() {
+export default function ResultInputBo3() {
   const router = useRouter();
 
   const {

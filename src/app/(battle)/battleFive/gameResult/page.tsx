@@ -14,7 +14,7 @@ export default function GameResultPage() {
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 text-center">Game Result</h1>
       <div className="flex space-x-2 items-center justify-center">
-        {["map1", "map2", "map3"].map((key, index) => (
+        {["map1", "map2", "map3", "map4", "map5"].map((key, index) => (
           <div
             key={index}
             className="relative w-[20%] pb-[30%] overflow-hidden"

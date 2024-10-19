@@ -26,10 +26,23 @@ export default function HomePage() {
             画像として生成するサイトです
           </p>
         </div>
-        <div className="flex justify-center pt-6 md:pt-10">
-          <Link href={"/create"} className={cn(buttonVariants({ size: "lg" }))}>
-            作成する
-          </Link>
+        <div className="flex justify-center pt-6 md:pt-10 space-x-4">
+          <div>
+            <Link
+              href={"/battleThree"}
+              className={cn(buttonVariants({ size: "lg" }))}
+            >
+              BO3
+            </Link>
+          </div>
+          <div>
+            <Link
+              href={"/battleFive"}
+              className={cn(buttonVariants({ size: "lg" }))}
+            >
+              BO5
+            </Link>
+          </div>
         </div>
       </section>
     </>
