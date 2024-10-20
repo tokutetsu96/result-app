@@ -1,17 +1,17 @@
-import { validationSchemaType } from "@/utils/validationSchema";
-import { UseFormRegister, FieldErrorsImpl } from "react-hook-form";
+import { validationSchemaTypeBo3 } from "@/utils/validationSchemaBo3";
+import { UseFormRegister } from "react-hook-form";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
 interface TeamScoreInputProps {
-  id: keyof validationSchemaType;
+  id: keyof validationSchemaTypeBo3;
   label: string;
   borderColor: string;
-  register: UseFormRegister<validationSchemaType>;
+  register: UseFormRegister<validationSchemaTypeBo3>;
   error?: string | undefined;
 }
 
-export function TeamScoreInput({
+export function TeamScoreInputBo3({
   id,
   label,
   borderColor,
@@ -25,7 +25,7 @@ export function TeamScoreInput({
         <Input
           id={id}
           type="number"
-          {...register(id as keyof validationSchemaType)}
+          {...register(id as keyof validationSchemaTypeBo3)}
           className="w-96 p-1 border-2 rounded text-2xl"
         />
         {error ? (

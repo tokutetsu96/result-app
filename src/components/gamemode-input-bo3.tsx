@@ -1,12 +1,12 @@
 import { mapconfig } from "@/config/map";
-import { validationSchemaType } from "@/utils/validationSchema";
+import { validationSchemaTypeBo3 } from "@/utils/validationSchemaBo3";
 import { useEffect, useState } from "react";
 import { UseFormRegister } from "react-hook-form";
 
 interface GameModeInputProps {
   gameId: string;
   mapId: string;
-  register: UseFormRegister<validationSchemaType>;
+  register: UseFormRegister<validationSchemaTypeBo3>;
   defaultValue: string;
   error?: string | undefined;
 }
@@ -21,7 +21,7 @@ interface GameModeInputProps {
  *
  * @returns
  */
-export function GameModeInput({
+export function GameModeInputBo3({
   gameId,
   mapId,
   register,
@@ -51,7 +51,7 @@ export function GameModeInput({
           id={gameIdValue}
           className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded text-lg font-semibold"
           value={gameMode}
-          {...register(gameId as keyof validationSchemaType, {
+          {...register(gameId as keyof validationSchemaTypeBo3, {
             onChange: (e) => setGameMode(e.target.value),
           })}
         >
@@ -62,7 +62,7 @@ export function GameModeInput({
         <select
           id={mapId}
           className="mx-2 p-1 border-2 border-slate-300 focus:outline-none focus:border-slate-500 rounded text-lg"
-          {...register(mapId as keyof validationSchemaType)}
+          {...register(mapId as keyof validationSchemaTypeBo3)}
         >
           {mapconfig[gameModeValue]?.map((map: string) => (
             <option key={map} value={map}>

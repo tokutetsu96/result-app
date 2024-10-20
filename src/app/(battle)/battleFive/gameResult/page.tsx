@@ -10,6 +10,8 @@ export default function GameResultPage() {
   const { getValues } = useFormContext();
   const data = getValues();
 
+  console.log(data);
+
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 text-center">Game Result</h1>
@@ -40,20 +42,20 @@ export default function GameResultPage() {
             </div>
             <div
               className={`absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl font-bold px-4 py-2 rounded-md backdrop-blur-md bg-slate-100 bg-opacity-75 whitespace-nowrap ${
-                data[`myTeamScore${index + 1}`] >
-                data[`enemyTeamScore${index + 1}`]
+                parseInt(data[`myTeamScore${index + 1}`]) >
+                parseInt(data[`enemyTeamScore${index + 1}`])
                   ? "text-blue-500"
-                  : data[`myTeamScore${index + 1}`] <
-                      data[`enemyTeamScore${index + 1}`]
+                  : parseInt(data[`myTeamScore${index + 1}`]) <
+                      parseInt(data[`enemyTeamScore${index + 1}`])
                     ? "text-red-500"
                     : "text-black text-4xl"
               }`}
             >
-              {data[`myTeamScore${index + 1}`] >
-              data[`enemyTeamScore${index + 1}`]
+              {parseInt(data[`myTeamScore${index + 1}`]) >
+              parseInt(data[`enemyTeamScore${index + 1}`])
                 ? data.myTeamName
-                : data[`myTeamScore${index + 1}`] <
-                    data[`enemyTeamScore${index + 1}`]
+                : parseInt(data[`myTeamScore${index + 1}`]) <
+                    parseInt(data[`enemyTeamScore${index + 1}`])
                   ? data.enemyTeamName
                   : "NOT PLAY"}
             </div>

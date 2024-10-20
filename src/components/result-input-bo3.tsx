@@ -5,9 +5,9 @@ import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { TeamNameInput } from "./teamname-input";
-import { GameModeInput } from "./gamemode-input";
-import { TeamScoreInput } from "./team-score-input";
-import { validationSchemaType } from "@/utils/validationSchema";
+import { GameModeInputBo3 } from "./gamemode-input-bo3";
+import { TeamScoreInputBo3 } from "./team-score-input-bo3";
+import { validationSchemaTypeBo3 } from "@/utils/validationSchemaBo3";
 
 type GameFormValues = {
   map1: string;
@@ -22,9 +22,9 @@ export default function ResultInputBo3() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useFormContext<validationSchemaType>();
+  } = useFormContext<validationSchemaTypeBo3>();
 
-  const onSubmit = (data: validationSchemaType) => {
+  const onSubmit = (data: validationSchemaTypeBo3) => {
     router.push("/battleThree/gameResult");
   };
 
@@ -55,7 +55,7 @@ export default function ResultInputBo3() {
         {[1, 2, 3].map((modeIndex) => (
           <div key={modeIndex}>
             <h2 className="sm:text-2xl font-bold">{`${modeIndex}モード目`}</h2>
-            <GameModeInput
+            <GameModeInputBo3
               gameId={`game${modeIndex}`}
               mapId={`map${modeIndex}`}
               register={register}
@@ -71,8 +71,8 @@ export default function ResultInputBo3() {
               }
             />
             <div className="flex justify-between">
-              <TeamScoreInput
-                id={`myTeamScore${modeIndex}` as keyof validationSchemaType}
+              <TeamScoreInputBo3
+                id={`myTeamScore${modeIndex}` as keyof validationSchemaTypeBo3}
                 label="自チーム"
                 borderColor="border-blue-500"
                 register={register}
@@ -81,8 +81,10 @@ export default function ResultInputBo3() {
                     ?.message
                 }
               />
-              <TeamScoreInput
-                id={`enemyTeamScore${modeIndex}` as keyof validationSchemaType}
+              <TeamScoreInputBo3
+                id={
+                  `enemyTeamScore${modeIndex}` as keyof validationSchemaTypeBo3
+                }
                 label="相手チーム"
                 borderColor="border-red-500"
                 register={register}

@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   validationSchemaBo5,
   validationSchemaTypeBo5,
-} from "@/utils/validationSchema";
+} from "@/utils/validationSchemaBo5";
 
 export default function BattleFiveLayout({
   children,

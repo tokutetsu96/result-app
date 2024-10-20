@@ -3,18 +3,18 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  validationSchema,
-  validationSchemaType,
-} from "@/utils/validationSchema";
+  validationSchemaBo3,
+  validationSchemaTypeBo3,
+} from "@/utils/validationSchemaBo3";
 
 export default function BattleThreeLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const methods = useForm<validationSchemaType>({
+  const methods = useForm<validationSchemaTypeBo3>({
     mode: "onChange",
-    resolver: zodResolver(validationSchema),
+    resolver: zodResolver(validationSchemaBo3),
   });
   return (
     <FormProvider {...methods}>

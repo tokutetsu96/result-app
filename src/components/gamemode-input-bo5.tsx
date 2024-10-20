@@ -1,5 +1,5 @@
 import { mapconfig } from "@/config/map";
-import { validationSchemaTypeBo5 } from "@/utils/validationSchema";
+import { validationSchemaTypeBo5 } from "@/utils/validationSchemaBo5";
 import { useEffect, useState } from "react";
 import { UseFormRegister } from "react-hook-form";
 

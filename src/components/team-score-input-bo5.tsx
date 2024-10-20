@@ -1,4 +1,4 @@
-import { validationSchemaTypeBo5 } from "@/utils/validationSchema";
+import { validationSchemaTypeBo5 } from "@/utils/validationSchemaBo5";
 import { UseFormRegister } from "react-hook-form";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";

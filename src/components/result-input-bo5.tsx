@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { TeamNameInputBo5 } from "./teamname-input-bo5";
 import { GameModeInputBo5 } from "./gamemode-input-bo5";
 import { TeamScoreInputBo5 } from "./team-score-input-bo5";
-import { validationSchemaTypeBo5 } from "@/utils/validationSchema";
+import { validationSchemaTypeBo5 } from "@/utils/validationSchemaBo5";
 
 type GameFormValues = {
   map1: string;
