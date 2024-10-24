@@ -1,4 +1,4 @@
-import { validationSchemaTypeBo5 } from "@/utils/validationSchemaBo3";
+import { validationSchemaTypeBo5 } from "@/utils/validationSchemaBo5";
 import { UseFormRegister } from "react-hook-form";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -27,7 +27,7 @@ export function TeamNameInputBo5({
         <Input
           id={idValue}
           type="text"
-          placeholder="大文字アルファベットのみで入力してください"
+          placeholder="アルファベットのみで入力してください"
           className="w-full py-2 rounded text-lg"
           {...register(id as keyof validationSchemaTypeBo5)}
         />

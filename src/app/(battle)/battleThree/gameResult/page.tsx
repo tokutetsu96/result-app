@@ -1,12 +1,10 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
 import { useFormContext } from "react-hook-form";
 import { imageMapConfig, ImageMapConfig } from "@/config/map";
 
 export default function GameResultPage() {
-  const router = useRouter();
   const { getValues } = useFormContext();
   const data = getValues();
 
@@ -39,14 +37,14 @@ export default function GameResultPage() {
               </div>
             </div>
             <div
-              className={`absolute top-10 left-1/2 transform -translate-x-1/2 text-6xl font-bold px-4 py-2 rounded-md backdrop-blur-md bg-slate-100 bg-opacity-75 whitespace-nowrap ${
+              className={`absolute top-10 left-1/2 transform -translate-x-1/2 text-3xl font-bold px-4 py-2 rounded-md backdrop-blur-md bg-slate-100 bg-opacity-75 whitespace-nowrap ${
                 data[`myTeamScore${index + 1}`] >
                 data[`enemyTeamScore${index + 1}`]
                   ? "text-blue-500"
                   : data[`myTeamScore${index + 1}`] <
                       data[`enemyTeamScore${index + 1}`]
                     ? "text-red-500"
-                    : "text-black text-4xl"
+                    : "text-black"
               }`}
             >
               {data[`myTeamScore${index + 1}`] >

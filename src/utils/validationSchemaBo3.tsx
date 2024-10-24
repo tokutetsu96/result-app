@@ -4,16 +4,16 @@ export const validationSchemaBo3 = z.object({
   myTeamName: z
     .string()
     .min(1, { message: "自分のチーム名を入力してください。" })
-    .max(4, { message: "自分のチーム名は4文字以下にしてください。" })
-    .regex(/^[A-Z0-9]+$/, {
-      message: "自分のチーム名はアルファベットの大文字のみ使用できます。",
+    .max(5, { message: "自分のチーム名は5文字以下にしてください。" })
+    .regex(/^[A-Za-z]+$/, {
+      message: "自分のチーム名はアルファベットのみ使用できます。",
     }),
   enemyTeamName: z
     .string()
     .min(1, { message: "相手のチーム名を入力してください。" })
-    .max(4, { message: "相手のチーム名は4文字以下にしてください。" })
-    .regex(/^[A-Z0-9]+$/, {
-      message: "相手のチーム名はアルファベットの大文字のみ使用できます。",
+    .max(5, { message: "相手のチーム名は5文字以下にしてください。" })
+    .regex(/^[A-Za-z]+$/, {
+      message: "相手のチーム名はアルファベットのみ使用できます。",
     }),
   myTeamScore1: z.coerce
     .number()

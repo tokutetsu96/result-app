@@ -1,4 +1,4 @@
-import { validationSchemaType } from "@/utils/validationSchemaBo3";
+import { validationSchemaTypeBo3 } from "@/utils/validationSchemaBo3";
 import { UseFormRegister } from "react-hook-form";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -7,7 +7,7 @@ interface TeamNameInputProps {
   id: string;
   label: string;
   borderColor: string;
-  register: UseFormRegister<validationSchemaType>;
+  register: UseFormRegister<validationSchemaTypeBo3>;
   error?: string | undefined;
 }
 
@@ -27,9 +27,9 @@ export function TeamNameInput({
         <Input
           id={idValue}
           type="text"
-          placeholder="大文字アルファベットのみで入力してください"
+          placeholder="アルファベットのみで入力してください"
           className="w-full py-2 rounded text-lg"
-          {...register(id as keyof validationSchemaType)}
+          {...register(id as keyof validationSchemaTypeBo3)}
         />
         {error ? (
           <p className="text-red-500">{error}</p>

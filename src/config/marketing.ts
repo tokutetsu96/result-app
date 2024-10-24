@@ -7,7 +7,7 @@ export const marketingConfig: MarketingConfig = {
       href: "/",
     },
     {
-      title: "概要",
+      title: "使い方",
       href: "/description",
     },
   ],

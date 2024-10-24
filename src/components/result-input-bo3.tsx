@@ -4,10 +4,11 @@ import { useFormContext } from "react-hook-form";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-import { TeamNameInput } from "./teamname-input";
+import { TeamNameInput } from "./teamname-input-bo3";
 import { GameModeInputBo3 } from "./gamemode-input-bo3";
 import { TeamScoreInputBo3 } from "./team-score-input-bo3";
 import { validationSchemaTypeBo3 } from "@/utils/validationSchemaBo3";
+import { CONTROL, HARDPOINT, SEARCH_AND_DESTROY } from "@/utils/constants";
 
 type GameFormValues = {
   map1: string;
@@ -62,11 +63,11 @@ export default function ResultInputBo3() {
               error={errors[`map${modeIndex}` as keyof GameFormValues]?.message}
               defaultValue={
                 modeIndex === 1
-                  ? "HARDPOINT"
+                  ? HARDPOINT
                   : modeIndex === 2
-                    ? "SEARCH & DESTROY"
+                    ? SEARCH_AND_DESTROY
                     : modeIndex === 3
-                      ? "CONTROL"
+                      ? CONTROL
                       : ""
               }
             />

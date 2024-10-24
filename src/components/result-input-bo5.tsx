@@ -8,6 +8,7 @@ import { TeamNameInputBo5 } from "./teamname-input-bo5";
 import { GameModeInputBo5 } from "./gamemode-input-bo5";
 import { TeamScoreInputBo5 } from "./team-score-input-bo5";
 import { validationSchemaTypeBo5 } from "@/utils/validationSchemaBo5";
+import { CONTROL, HARDPOINT, SEARCH_AND_DESTROY } from "@/utils/constants";
 
 type GameFormValues = {
   map1: string;
@@ -63,15 +64,15 @@ export default function ResultInputBo5() {
               error={errors[`map${modeIndex}` as keyof GameFormValues]?.message}
               defaultValue={
                 modeIndex === 1
-                  ? "HARDPOINT"
+                  ? HARDPOINT
                   : modeIndex === 2
-                    ? "SEARCH & DESTROY"
+                    ? SEARCH_AND_DESTROY
                     : modeIndex === 3
-                      ? "CONTROL"
+                      ? CONTROL
                       : modeIndex === 4
-                        ? "HARDPOINT"
+                        ? HARDPOINT
                         : modeIndex === 5
-                          ? "SEARCH & DESTROY"
+                          ? SEARCH_AND_DESTROY
                           : ""
               }
             />
