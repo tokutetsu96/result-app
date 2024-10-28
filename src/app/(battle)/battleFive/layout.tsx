@@ -18,7 +18,7 @@ export default function BattleFiveLayout({
   });
   return (
     <FormProvider {...methods}>
-      <main className="container">{children}</main>
+      <main>{children}</main>
     </FormProvider>
   );
 }
