@@ -12,7 +12,6 @@ export default function GameResultPage() {
 
   // 画像化とダウンロードをトリガーする関数
   const onClickExport = (): void => {
-    console.log("click");
     // 画像化したい要素を取得
     const target = document.getElementById("result-component") as HTMLElement;
     // html2canvasを使って要素をキャンバスに描画
